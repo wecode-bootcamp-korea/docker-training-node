@@ -1,12 +1,9 @@
 import prisma from "../prisma";
 
 const findProducts = async (ordering) => {
-  const a = await prisma.$queryRaw`
+  return await prisma.$queryRaw`
     SELECT * FROM products;
   `
-
-  console.log('a', a)
-  return a
 };
 
 const findOneProduct = async (productId) => {

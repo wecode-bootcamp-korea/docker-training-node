@@ -84,7 +84,6 @@ const createProductImage = () => {
     .pipe(csv())
     .on("data", async (p) => {
       try {
-        console.log(typeof(p.order));
         await prisma.$queryRaw`
 		  	  INSERT INTO product_images(
             id,
