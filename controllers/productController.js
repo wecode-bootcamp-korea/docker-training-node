@@ -1,9 +1,10 @@
-import { productService } from "../models";
+import { productService } from "../services";
 
 const findProducts = async (req, res) => {
   try {
     const ordering = req.query.ordering;
     const products = await productService.findProducts(ordering);
+    console.log(products)
     return res.status(200).json({ products });
   } catch (err) {
     console.log(err);

@@ -1,25 +1,12 @@
 import prisma from "../prisma";
 
 const findProducts = async (ordering) => {
-  return await prisma.product.findMany({
-    select: {
-      id: true,
-      name: true,
-      price: true,
-      weight: true,
-      productSize: {
-        select: {
-          name: true,
-        },
-      },
-      productImage: true,
-    },
-    orderBy: [
-      {
-        id: "asc",
-      },
-    ],
-  });
+  const a = await prisma.$queryRaw`
+    SELECT * FROM products;
+  `
+
+  console.log('a', a)
+  return a
 };
 
 const findOneProduct = async (productId) => {
