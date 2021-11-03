@@ -4,7 +4,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const createColor = () => {
-  fs.createReadStream("./colors.csv")
+  fs.createReadStream("./dataUploader/colors.csv")
     .pipe(csv())
     .on("data", async (c) => {
       try {
@@ -22,7 +22,7 @@ const createColor = () => {
 };
 
 const createProduct = () => {
-  fs.createReadStream("./productsFalseName.csv")
+  fs.createReadStream("./dataUploader/productsFalseName.csv")
     .pipe(csv())
     .on("data", async (p) => {
       try {
@@ -40,7 +40,7 @@ const createProduct = () => {
 };
 
 const createProductColor = () => {
-  fs.createReadStream("./productColor.csv")
+  fs.createReadStream("./dataUploader/productColor.csv")
     .pipe(csv())
     .on("data", async (p) => {
       try {
@@ -80,7 +80,7 @@ const createProductColor = () => {
 }
 
 const createProductImage = () => {
-  fs.createReadStream("./productImagesFalseUrl.csv")
+  fs.createReadStream("./dataUploader/productImagesFalseUrl.csv")
     .pipe(csv())
     .on("data", async (p) => {
       try {
@@ -104,7 +104,7 @@ const createProductImage = () => {
     });
 };
 
-//createColor();
-//createProduct();
+createColor();
+createProduct();
 createProductColor()
 // createProductImage()
