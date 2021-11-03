@@ -7,8 +7,9 @@ WORKDIR /usr/src/app
 
 ## Install packages
 # 현재 패키지 설치 정보를 도커 이미지에 복사. package-lock.json도 복사하는 것이 안전.
-COPY ./prisma/schema.prisma ./
 COPY package*.json ./
+# 프리즈마 스키마의 위치를 한 디렉토리 상위로 이동하여 복사
+COPY ./prisma/schema.prisma ./
 # 설치정보를 읽어 들여서 패키지를 설치
 RUN npm install
 # RUN npx prisma generate
